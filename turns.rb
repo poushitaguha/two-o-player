@@ -18,22 +18,24 @@ class Turns
             first_number = @q1.questionGenerator[0]
             second_number = @q1.questionGenerator[1]
         
-            actualsum = first_number + second_number
+            actual_sum = first_number + second_number
         
             puts "Player #{@game.currentPlayer}: What does #{first_number} + #{second_number} equal?"
             playerinput = gets.chomp
         
-            if (playerinput.to_i == actualsum.to_i)
-            puts "Player #{@game.currentPlayer}: YES! You are correct"
-            puts "P1: #{@player1.lives}/3 VS P2: #{@player2.lives}/3"
+            if (playerinput.to_i == actual_sum.to_i)
+                puts "Player #{@game.currentPlayer}: YES! You are correct"
+                puts "P1: #{@player1.lives}/3 VS P2: #{@player2.lives}/3"
+                puts "----- NEW TURN -----"
             else
-            puts "Player #{@game.currentPlayer}: Seriously? No!"
-            if @game.currentPlayer == 1
-                @player1.lives -= 1
-            elsif @game.currentPlayer == 2
-                @player2.lives -= 1
-            end
-            puts "P1: #{@player1.lives}/3 VS P2: #{@player2.lives}/3"
+                puts "Player #{@game.currentPlayer}: Seriously? No!"
+                if @game.currentPlayer == 1
+                    @player1.lives -= 1
+                elsif @game.currentPlayer == 2
+                    @player2.lives -= 1
+                end
+                puts "P1: #{@player1.lives}/3 VS P2: #{@player2.lives}/3"
+                puts "----- NEW TURN -----"
             end
         
             if @player1.lives == 0 || @player2.lives == 0
