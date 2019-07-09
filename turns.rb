@@ -26,7 +26,9 @@ class Turns
             if (playerinput.to_i == actual_sum.to_i)
                 puts "Player #{@game.currentPlayer}: YES! You are correct"
                 puts "P1: #{@player1.lives}/3 VS P2: #{@player2.lives}/3"
-                puts "----- NEW TURN -----"
+                if @player1.lives != 0 && @player2.lives != 0
+                    puts "----- NEW TURN -----"
+                end
             else
                 puts "Player #{@game.currentPlayer}: Seriously? No!"
                 if @game.currentPlayer == 1
@@ -35,7 +37,9 @@ class Turns
                     @player2.lives -= 1
                 end
                 puts "P1: #{@player1.lives}/3 VS P2: #{@player2.lives}/3"
-                puts "----- NEW TURN -----"
+                if @player1.lives != 0 && @player2.lives != 0
+                    puts "----- NEW TURN -----"
+                end
             end
         
             if @player1.lives == 0 || @player2.lives == 0
